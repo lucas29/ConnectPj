@@ -1,10 +1,10 @@
 // Import Serial Library
 import processing.serial.*;
 
-// myPort（任意名）というインスタンスを用意
+// create instance named myPort
 Serial myPort;
 
-int x; //図形のX座標の変数を用意
+int x;
 
 void setup(){
   // 画面サイズ
@@ -12,7 +12,7 @@ void setup(){
 
   // シリアルポートの設定
   // "/dev/tty.usbmodem1411" の部分を前述の「シリアルポートを選択する」で選択したシリアルポートにあわせて書き換える
-  myPort = new Serial(this, "/dev/tty.usbmodem1411", 9600);
+  myPort = new Serial(this, "/dev/cu.usbmodem1451", 9600);
 }
 
 void draw(){
