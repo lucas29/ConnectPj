@@ -5,23 +5,21 @@ import processing.serial.*;
 Serial myPort;
 
 int x;
+int timer = 0;
 
 void setup(){
   // 画面サイズ
   size(256, 256);
-
-  // シリアルポートの設定
-  // "/dev/tty.usbmodem1411" の部分を前述の「シリアルポートを選択する」で選択したシリアルポートにあわせて書き換える
+  background(255);
+  frameRate(30);
   myPort = new Serial(this, "/dev/cu.usbmodem1451", 9600);
 }
 
 void draw(){
-  // 背景色を白に設定
-  background(255);
-
-  // XY座標を(x,100)に設定し、
-  // 幅50、高さ50の円を描画
-  ellipse(x,100,50,50);
+  if(x>10){
+    timer++;
+    ellipse(timer, 255-x, 5,5);
+  }
 }
 
 void serialEvent(Serial p){
